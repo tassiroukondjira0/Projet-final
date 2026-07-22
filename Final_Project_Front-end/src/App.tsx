@@ -26,7 +26,6 @@ import {
     DashboardSocialPage,
     DashboardUserProfilePage,
 } from "./Components/DashboardPages";
-import { Analytics } from "@vercel/analytics/next"
 
 function PublicLayout() {
     return (
@@ -35,7 +34,6 @@ function PublicLayout() {
             <main className="pt-18">
                 <Outlet />
             </main>
-            <Analytics />
         </div>
     );
 }
