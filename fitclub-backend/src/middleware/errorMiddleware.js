@@ -8,6 +8,11 @@ const errorHandler = (err, req, res, next) => {
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = err.message;
 
+  // Toujours logger l'erreur complète côté serveur (visible dans les logs
+  // Render/Railway), même en production — sinon un 500 est totalement
+  // silencieux et impossible à diagnostiquer depuis les logs.
+  console.error(`[${req.method} ${req.originalUrl}]`, err);
+
   if (err.name === 'CastError' && err.kind === 'ObjectId') {
     statusCode = 404;
     message = 'Ressource introuvable (identifiant invalide)';
