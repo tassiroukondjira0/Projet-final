@@ -1,0 +1,7 @@
+# Dépendances Node.js
+node_modules/
+
+# Variables d'environnement (fichiers de configuration sensibles)
+.env
+.env.local
+.env.*.local
